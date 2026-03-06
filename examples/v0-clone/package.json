@@ -3,7 +3,7 @@
   "version": "0.3.2",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "turbo build --filter=v0-sdk --filter=@v0-sdk/react && next dev --turbopack",
     "build": "tsx lib/db/migrate && next build --turbopack",
     "start": "next start",
     "db:generate": "drizzle-kit generate",

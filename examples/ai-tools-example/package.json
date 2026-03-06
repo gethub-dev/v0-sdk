@@ -5,11 +5,11 @@
   "description": "Example usage of @v0-sdk/ai-tools with AI SDK",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/simple-example.ts",
-    "dev:full": "tsx src/index.ts",
-    "dev:chat": "tsx src/chat-example.ts",
-    "dev:project": "tsx src/project-example.ts",
-    "dev:agent": "tsx src/agent-example.ts",
+    "run:simple": "tsx src/simple-example.ts",
+    "run:full": "tsx src/index.ts",
+    "run:chat": "tsx src/chat-example.ts",
+    "run:project": "tsx src/project-example.ts",
+    "run:agent": "tsx src/agent-example.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit"
   },

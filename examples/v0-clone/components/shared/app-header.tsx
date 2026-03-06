@@ -64,7 +64,7 @@ export function AppHeader({ className = '' }: AppHeaderProps) {
 
   return (
     <div
-      className={`${!isHomepage ? 'border-b border-border dark:border-input' : ''} ${className}`}
+      className={`${!isHomepage ? 'border-b border-border' : ''} bg-background/80 backdrop-blur-md ${className}`}
     >
       {/* Handle search params with Suspense boundary */}
       <Suspense fallback={null}>
@@ -78,9 +78,17 @@ export function AppHeader({ className = '' }: AppHeaderProps) {
             <Link
               href="/"
               onClick={handleLogoClick}
-              className="text-lg font-semibold text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+              className="flex items-center gap-2 group"
             >
-              v0 Clone
+              {/* Cosmic skull/star logo mark */}
+              <span className="relative flex items-center justify-center w-7 h-7 rounded-md bg-primary/10 border border-primary/30 group-hover:border-primary/60 transition-colors">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-primary">
+                  <path d="M8 1L9.5 6H15L10.5 9L12 14L8 11L4 14L5.5 9L1 6H6.5L8 1Z" fill="currentColor"/>
+                </svg>
+              </span>
+              <span className="text-base font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                RIP <span className="text-primary">code</span>
+              </span>
             </Link>
             {/* Hide ChatSelector on mobile */}
             <div className="hidden lg:block">
@@ -138,31 +146,30 @@ export function AppHeader({ className = '' }: AppHeaderProps) {
       <Dialog open={isInfoDialogOpen} onOpenChange={setIsInfoDialogOpen}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold mb-4">
-              v0 Clone Platform
+            <DialogTitle className="text-2xl font-bold mb-4 text-foreground">
+              RIP <span className="text-primary">code</span> Platform
             </DialogTitle>
           </DialogHeader>
-          <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
+          <div className="space-y-4 text-sm text-muted-foreground">
             <p>
-              This is a <strong>demo</strong> of a{' '}
+              This is a <strong className="text-foreground">demo</strong> of a{' '}
               <a
                 href="https://v0.app"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                className="underline text-primary hover:text-primary/80"
               >
-                v0 clone
+                RIP code
               </a>{' '}
-              where users can enter text prompts and generate React components
-              and applications using AI.
+              platform where you describe what to build and AI destroys the boilerplate — generating production-ready React components instantly.
             </p>
             <p>
-              It's built with{' '}
+              Built with{' '}
               <a
                 href="https://nextjs.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                className="underline text-primary hover:text-primary/80"
               >
                 Next.js
               </a>{' '}
@@ -171,12 +178,11 @@ export function AppHeader({ className = '' }: AppHeaderProps) {
                 href="https://v0-sdk.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                className="underline text-primary hover:text-primary/80"
               >
                 v0 SDK
-              </a>{' '}
-              to provide a full-featured interface with authentication, database
-              integration, and real-time streaming responses.
+              </a>
+              . Full auth, database, and real-time streaming included.
             </p>
             <p>
               Try the demo or{' '}
@@ -184,9 +190,9 @@ export function AppHeader({ className = '' }: AppHeaderProps) {
                 href={DEPLOY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                className="underline text-primary hover:text-primary/80"
               >
-                deploy your own
+                deploy your own instance
               </a>
               .
             </p>

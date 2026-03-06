@@ -419,7 +419,9 @@ export function HomeClient() {
 
   if (showChatInterface) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-black flex flex-col">
+      <div className="min-h-screen nebula-ambient flex flex-col">
+        {/* Star field */}
+        <div className="star-field" aria-hidden="true" />
         {/* Handle search params with Suspense boundary */}
         <Suspense fallback={null}>
           <SearchParamsHandler onReset={handleReset} />
@@ -427,7 +429,7 @@ export function HomeClient() {
 
         <AppHeader />
 
-        <div className="flex flex-col h-[calc(100vh-64px-40px)] md:h-[calc(100vh-64px)]">
+        <div className="flex flex-col h-[calc(100vh-64px-40px)] md:h-[calc(100vh-64px)] relative z-10">
           <ResizableLayout
             className="flex-1 min-h-0"
             singlePanelMode={false}
@@ -478,7 +480,10 @@ export function HomeClient() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black flex flex-col">
+    <div className="min-h-screen nebula-ambient flex flex-col">
+      {/* Animated star field */}
+      <div className="star-field" aria-hidden="true" />
+
       {/* Handle search params with Suspense boundary */}
       <Suspense fallback={null}>
         <SearchParamsHandler onReset={handleReset} />
@@ -487,19 +492,30 @@ export function HomeClient() {
       <AppHeader />
 
       {/* Main Content */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl w-full">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              What can we build together?
-            </h2>
+            {/* Brand pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-medium tracking-wider uppercase mb-6">
+              <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 1L9.5 6H15L10.5 9L12 14L8 11L4 14L5.5 9L1 6H6.5L8 1Z"/>
+              </svg>
+              AI-powered code generation
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-foreground mb-4 text-balance cosmic-title">
+              RIP <span className="text-primary">boilerplate.</span>
+            </h1>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto text-pretty leading-relaxed">
+              Describe what you want to build. Watch the AI obliterate the blank canvas and ship production-ready components instantly.
+            </p>
           </div>
 
           {/* Prompt Input */}
           <div className="max-w-2xl mx-auto">
             <PromptInput
               onSubmit={handleSendMessage}
-              className="w-full relative"
+              className="w-full relative nebula-glow rounded-xl bg-card"
               onImageDrop={handleImageFiles}
               isDragOver={isDragOver}
               onDragOver={handleDragOver}
@@ -514,7 +530,7 @@ export function HomeClient() {
                 ref={textareaRef}
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
-                placeholder="Describe what you want to build..."
+                placeholder="Describe what you want to obliterate into code..."
                 className="min-h-[80px] text-base"
                 disabled={isLoading}
               />

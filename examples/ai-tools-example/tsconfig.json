@@ -11,7 +11,11 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "paths": {
+      "@v0-sdk/ai-tools": ["../../packages/ai-tools/src/index.ts"],
+      "v0-sdk": ["../../packages/v0-sdk/src/index.ts"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

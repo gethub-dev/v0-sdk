@@ -11,7 +11,7 @@
   "scripts": {
     "build": "turbo build",
     "build:packages": "turbo build --filter=@v0-sdk/* --filter=v0-sdk",
-    "dev": "turbo dev",
+    "dev": "turbo dev --filter=v0-clone",
     "lint": "turbo lint --filter=@v0-sdk/* --filter=v0-sdk --filter=create-v0-sdk-app",
     "test": "turbo test --filter=@v0-sdk/* --filter=v0-sdk",
     "test:watch": "turbo test:watch",
